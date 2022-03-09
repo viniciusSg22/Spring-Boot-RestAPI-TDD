@@ -1,24 +1,27 @@
 package com.vsanches.tddrestapi.controllers;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.http.HttpStatus;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.vsanches.tddrestapi.entities.User;
+import com.vsanches.tddrestapi.dto.UserDTO;
+import com.vsanches.tddrestapi.services.UserService;
 
 @RestController
 @RequestMapping("/api")
 public class UserController {
 
+	@Autowired
+	private UserService userSerivce;
+
 	@GetMapping("/users")
-	public ResponseEntity<List<User>> getAllUsers() {
-		List<User> userList = new ArrayList<>();
-		userList.add(new User(1L, "Fulano", "Fulaninho", "fulano@gmail.com", "12345678"));
-		return new ResponseEntity<>(userList, HttpStatus.OK);
+	public ResponseEntity<List<UserDTO>> getAllUsers() {
+		List<UserDTO> userList = userSerivce.findAllUsers();
+		return ResponseEntity.ok(userList);
 	}
 }
+ 
