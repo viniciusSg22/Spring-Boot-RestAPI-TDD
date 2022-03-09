@@ -14,7 +14,7 @@ import com.vsanches.tddrestapi.controllers.UserController;
 
 @WebMvcTest(controllers = UserController.class)
 @ExtendWith(SpringExtension.class)
-public class UserControllerTeste {
+public class UserControllerTest {
 
 	@Autowired
 	private MockMvc mockMvc;
