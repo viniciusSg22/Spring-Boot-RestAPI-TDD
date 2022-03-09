@@ -1,5 +1,7 @@
 package com.vsanches.tddrestapi;
 
+package com.vsanches.tddrestapi;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
 
